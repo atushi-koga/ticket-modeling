@@ -175,6 +175,10 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        /*
+         * Domain Service Provider
+         */
+        TicketPrice\Infra\Domain\Model\Ticket\TicketServiceProvider::class,
     ],
 
     /*

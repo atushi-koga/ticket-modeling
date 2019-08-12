@@ -82,30 +82,17 @@
     <div>
         <div>
             <label for="type">区分：</label>
-            <select name="fee_type" id="type">
+            <select name="price_id" id="type">
                 <option value="">選択してください</option>
-                <option value="general">一般</option>
-                <option value="general-senior">一般（シニア）</option>
-                <option value="">学生（大・専）</option>
-                <option value="">中・高校生</option>
+                <option value="1">一般</option>
+                <option value="2-senior">一般（シニア）</option>
+                <option value="3">学生（大・専）</option>
+                <option value="4">中・高校生</option>
             </select>
         </div>
         <div>
-            <label for="type">曜日：</label>
-            <select name="day_type" id="type">
-                <option value="">選択してください</option>
-                <option value="1">平日</option>
-                <option value="2">土日祝</option>
-                <option value="2">映画の日</option>
-            </select>
-        </div>
-        <div>
-            <label for="type">時間帯：</label>
-            <select name="time_type" id="type">
-                <option value="">選択してください</option>
-                <option value="1">〜20:00</option>
-                <option value="2">20:00〜 （レイト）</option>
-            </select>
+            <label for="date-time">上映開始日時：</label>
+            <input type="text" name="date_time" id="date-time">
         </div>
     </div>
     <input type="submit">

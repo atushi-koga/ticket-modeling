@@ -3,29 +3,27 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use packages\UseCase\FeeCalculationRequest;
-use packages\UseCase\FeeCalculationUseCase;
+use TicketPrice\App\GetTicketPriceService;
+use TicketPrice\App\Request\GetTicketPriceRequest;
 
 class PaymentController extends Controller
 {
-    /** @var FeeCalculationUseCase */
-    private $feeCalculator;
+    private $service;
 
-    public function __construct(FeeCalculationUseCase $feeCalculationUseCase)
+    public function __construct(GetTicketPriceService $service)
     {
-        $this->feeCalculator = $feeCalculationUseCase;
+        $this->service = $service;
     }
 
     public function fee(Request $request)
     {
-        $calculationRequest = new FeeCalculationRequest(
-            $request->input('fee_type'),
-            $request->input('day_type'),
-            $request->input('time_type')
+        $getTicketPriceRequest = new GetTicketPriceRequest(
+            intval($request->input('price_id')),
+            intval($request->input('date_time'))
         );
 
-        $fee = $this->feeCalculator->handler($calculationRequest);
+        $price = $this->service->getPrice($getTicketPriceRequest);
 
-        dd($fee);
+        dd($price);
     }
 }
